@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_164045) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer "confirmation"
-    t.integer "quantity"
+    t.integer "quantity", default: 0
     t.float "price"
     t.integer "user_id", null: false
     t.integer "concert_id", null: false
