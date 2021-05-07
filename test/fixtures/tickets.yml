@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confirmation: 1
+  quantity: 1
+  price: 1.5
+  user: one
+  concert: one
+
+two:
+  confirmation: 1
+  quantity: 1
+  price: 1.5
+  user: two
+  concert: two
