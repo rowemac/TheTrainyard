@@ -13,11 +13,13 @@
 ActiveRecord::Schema.define(version: 2021_05_07_164045) do
 
   create_table "concerts", force: :cascade do |t|
-    t.datetime "date"
+    t.date "date"
+    t.time "time"
     t.string "title"
     t.string "headliner"
     t.string "opener"
-    t.boolean "sold_out"
+    t.boolean "sold_out", default: false
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_164045) do
   create_table "tickets", force: :cascade do |t|
     t.integer "confirmation"
     t.integer "quantity", default: 0
-    t.float "price"
     t.integer "user_id", null: false
     t.integer "concert_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,8 +40,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_164045) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.string "uid"
-    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
