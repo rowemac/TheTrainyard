@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-05-07 12:40:45
+  title: MyString
+  headliner: MyString
+  opener: MyString
+  sold_out: false
+
+two:
+  date: 2021-05-07 12:40:45
+  title: MyString
+  headliner: MyString
+  opener: MyString
+  sold_out: false
