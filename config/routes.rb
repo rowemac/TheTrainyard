@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do 
     resources :tickets
   end 
 
   resources :concerts
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'welcome', to: 'sessions#welcome'
+  delete 'logout', to: 'sessions#destroy'
+
+
 end
