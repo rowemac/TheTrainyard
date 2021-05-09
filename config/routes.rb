@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
-
-  resources :tickets
+  resources :users do 
+    resources :tickets
+  end 
 
   resources :concerts
 
