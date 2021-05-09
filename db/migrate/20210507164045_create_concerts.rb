@@ -7,7 +7,7 @@ class CreateConcerts < ActiveRecord::Migration[6.1]
       t.string :headliner
       t.string :opener
       t.boolean :sold_out, default: false
-      t.float :price
+      t.integer :price
 
       t.timestamps
     end

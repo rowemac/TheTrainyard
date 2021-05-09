@@ -3,9 +3,9 @@
     <h5><%= concert.headliner %></h5>
     <h6><%= concert.opener %></h6>
     <ul>
-        <li><%= concert.date %></li>
-        <li><%= concert.time %></li>
-        <li><%= concert.price %></li>
+        <li><%= concert.date.strftime("%a %b %e, %Y") %></li>
+        <li><%= concert.time.strftime("%I:%M %p") %></li>
+        <li>$<%= concert.price %></li>
         <li><%= concert.sold_out %></li>
     </ul>
 <% end %>

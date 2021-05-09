@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_164045) do
     t.string "headliner"
     t.string "opener"
     t.boolean "sold_out", default: false
-    t.float "price"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
