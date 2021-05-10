@@ -8,7 +8,9 @@
     <p><%= concert.opener %></p>
     <p><%= concert.date.strftime("%a %b %e, %Y") %></p>
     <p><%= concert.time.strftime("%I:%M %p") %></p>
+    <p>Tickets: <%= concert.tickets.count %></p>
 <% end %>
+
 <br><br>
 <%= link_to "Edit My Profile", edit_user_path(@user) %> | 
 <%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %>

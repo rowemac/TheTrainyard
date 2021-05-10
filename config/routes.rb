@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get '/', to: 'welcome#home'
-
+  get '/:anything', to: 'application#wrong_page'
 
 end
