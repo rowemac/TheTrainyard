@@ -1,0 +1,7 @@
+<h3>Buy your ticket(s)</h3>
+
+<%= form_with model: @ticket do | f | %>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+    <%= f.submit "Purchase" %>
+<% end %>

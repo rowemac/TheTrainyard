@@ -2,10 +2,6 @@ class UsersController < ApplicationController
 
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
-    # def index
-    #     render :wrong_page
-    # end 
-
     def new
         @user = User.new
     end 
@@ -16,7 +12,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to concerts_path
         else
-            render :new
+            render :new 
         end 
     end 
 
@@ -29,6 +25,7 @@ class UsersController < ApplicationController
     end
 
     def show
+
     end 
 
     def destroy

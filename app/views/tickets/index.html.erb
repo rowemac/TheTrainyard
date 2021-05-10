@@ -1,7 +1,0 @@
-<% @tickets.each do | ticket | %>
-    <ul>
-        <li><%=ticket.concert.headliner%></li>
-        <li><%= link_to ticket.confirmation, user_ticket_path(ticket, current_user) %></li>
-        <li><%= ticket.quantity %></li>
-    </ul>
-<% end %>
