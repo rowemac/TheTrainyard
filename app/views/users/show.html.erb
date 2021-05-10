@@ -1,15 +1,14 @@
-<h1>Welcome, <%= @user.name %><h1>
+<h3>Name: <%= @user.name %><h3>
+<h3>Username: <%= @user.username %></h3>
+<h3>Email: <%= @user.email %></h3>
 <br><br>
-<h3><%= @user.username %></h3><br>
-<h3><%= @user.email %></h3><br>
-
-<h4>My Concerts</h4>
+<h3>My Concerts</h3>
 <% @user.concerts.each do | concert | %>
     <p><%= link_to concert.headliner, concert_path(concert) %></p>
     <p><%= concert.opener %></p>
     <p><%= concert.date.strftime("%a %b %e, %Y") %></p>
     <p><%= concert.time.strftime("%I:%M %p") %></p>
 <% end %>
-
-<%= link_to "Edit My Profile", edit_user_path(@user) %> <br><br>
+<br><br>
+<%= link_to "Edit My Profile", edit_user_path(@user) %> | 
 <%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %>
