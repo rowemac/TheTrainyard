@@ -11,5 +11,5 @@
     <p><%= concert.time.strftime("%I:%M %p") %></p>
 <% end %>
 
-<%= link_to "Update My Profile", edit_user_path(@user) %>
-<%#= link_to "Delete My Profile",  %>
+<%= link_to "Edit My Profile", edit_user_path(@user) %> <br><br>
+<%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %>
