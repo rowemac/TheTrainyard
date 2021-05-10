@@ -1,7 +1,7 @@
 <% @concerts.each do | concert | %>
-    <h2><%= concert.title  %></h2>
-    <h5><%= concert.headliner %></h5>
-    <h6><%= concert.opener %></h6>
+    <h1>THE TRAINYARD PRESENTS</h1>
+    <h2><%= link_to concert.headliner, concert_path(concert) %></h2>
+    <h4><%= concert.opener %></h4>
     <ul>
         <li><%= concert.date.strftime("%a %b %e, %Y") %></li>
         <li><%= concert.time.strftime("%I:%M %p") %></li>
