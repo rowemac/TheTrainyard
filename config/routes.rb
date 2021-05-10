@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :tickets
   end 
 
-  resources :concerts
+  resources :concerts, only: [:index, :show]
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
