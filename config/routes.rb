@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   delete 'logout', to: 'sessions#destroy'
 
+  get '/', to: 'welcome#home'
+
 
 end
