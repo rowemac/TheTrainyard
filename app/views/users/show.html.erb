@@ -10,3 +10,6 @@
     <p><%= concert.date.strftime("%a %b %e, %Y") %></p>
     <p><%= concert.time.strftime("%I:%M %p") %></p>
 <% end %>
+
+<%= link_to "Update My Profile", edit_user_path(@user) %>
+<%#= link_to "Delete My Profile",  %>
