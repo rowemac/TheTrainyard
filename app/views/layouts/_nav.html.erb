@@ -1,13 +1,11 @@
 <% if !logged_in? %>
-    <ul>
-        <li><%= link_to "Sign Up", new_user_path %></li>
-        <li><%= link_to "Log In", login_path %></li>
+    <p><%= link_to "Sign Up", new_user_path %></p>
+    <p><%= link_to "Log In", login_path %></p>
 <% else %>
-        <li><%= link_to "Profile", user_path(current_user)%></li>
-        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-    </ul>
+    <p><%= link_to "Profile", user_path(current_user)%></p>
+    <p><%= link_to "Log Out", logout_path, method: :delete %></p>
 <% end %>
 
 <% if logged_in? %>
-    <h3>Welcome, <%= current_user.name %>.</h3>
+    <p>Welcome, <%= current_user.name %>.<p>
 <% end %>
