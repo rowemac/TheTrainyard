@@ -1,3 +1,6 @@
-<h1>Your Ticket</h1>
+<h1>Your Ticket(s)</h1>
 
-<h3><%= @ticket.confirmation %></h3>
+<h2><%= @ticket.concert.headliner %></h2>
+<h3>with <%= @ticket.concert.opener %></h3>
+
+<h3>Confirmation Number: <%= @ticket.confirmation %></h3>
