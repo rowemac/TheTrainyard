@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :users do 
-    resources :tickets
-  end 
+  resources :users, only: [:new, :create, :edit, :update, :show, :delete]
 
-  resources :concerts, only: [:index, :show]
+  resources :concerts, only: [:index, :show] do
+    resources :tickets, only: [:new, :create, :edit, :update, :show, :delete]
+  end 
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
