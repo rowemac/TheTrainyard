@@ -6,6 +6,10 @@
         <li><%= concert.date.strftime("%a %b %e, %Y") %></li>
         <li><%= concert.time.strftime("%I:%M %p") %></li>
         <li>$<%= concert.price %></li>
-        <li><%= concert.sold_out %></li>
+        <% if concert.sold_out == true %>
+            <li><%= concert.sold_out = "SOLD OUT!" %></li>
+        <% else %>
+            <li><%= concert.sold_out = "BUY TICKETS!" %></li>
+        <% end %>
     </ul>
 <% end %>
