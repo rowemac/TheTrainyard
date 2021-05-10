@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
         !current_user.nil?
     end
 
-    def error_page
-        render :failure
+    def wrong_page
+        render '/wrong_page'
     end
 
 end
