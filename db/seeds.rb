@@ -10,7 +10,6 @@ end
 
 50.times do
     Concert.create!(
-        title: "THE TRAINYARD PRESENTS:",
         headliner: [Faker::Games::Fallout.faction, Faker::Games::StreetFighter.stage, Faker::Movies::LordOfTheRings.location, Faker::TvShows::TwinPeaks.location].sample,
         opener: Faker::Name.name_with_middle,
         date: Faker::Date.between(from: '2022-01-01', to: '2022-06-30'),

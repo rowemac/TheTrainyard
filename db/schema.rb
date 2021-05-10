@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_164045) do
   create_table "concerts", force: :cascade do |t|
     t.date "date"
     t.time "time"
-    t.string "title"
     t.string "headliner"
     t.string "opener"
     t.boolean "sold_out", default: false
