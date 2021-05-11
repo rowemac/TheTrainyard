@@ -3,6 +3,6 @@
 <%= form_with model: [@concert, @ticket] do | f | %>
     <%= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
     <%= f.label :quantity %>
-    <%= f.number_field :quantity, step: :any %>
+    <%= f.number_field :quantity %>
     <%= f.submit "Purchase" %>
 <% end %>
