@@ -2,5 +2,11 @@
 
 <h2><%= @ticket.concert.headliner %></h2>
 <h3>with <%= @ticket.concert.opener %></h3>
-
 <h3>Confirmation Number: <%= @ticket.confirmation %></h3>
+<p><%= @ticket.concert.date.strftime("%a %b %e, %Y") %></p>
+<p><%= @ticket.concert.time.strftime("%I:%M %p") %></p>
+
+
+
+<p><%= link_to "Edit My Ticket(s)",  edit_concert_ticket_path(@ticket) %>
+<p><%= link_to("Cancel My Order", @ticket.concert, method: :delete, data:{confirm: "Are you sure you want to cancel your order?"}) %></p>
