@@ -8,4 +8,8 @@
     <li>$<%= @concert.price %></li>
 </ul>
 
-<%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %>
+<% if @concert.sold_out == false %>
+    <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %>
+<% else %>
+    <p>We're sorry. This concert is currently <b>SOLD OUT</b>.</p>
+<% end %>
