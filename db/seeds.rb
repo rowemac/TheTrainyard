@@ -7,7 +7,7 @@ Ticket.destroy_all
         name: Faker::Name.name, 
         username: Faker::Internet.username,
         email: Faker::Internet.email,
-        password: "letmein"
+        password: ENV['SECRET_PASSWORD']
     )
 end
 
