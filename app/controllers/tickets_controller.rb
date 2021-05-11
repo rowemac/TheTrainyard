@@ -1,12 +1,18 @@
 class TicketsController < ApplicationController
     
     before_action :find_ticket, only: [:edit, :update, :show, :destroy]
-    # before_action :set_concert, only: [:new, :create, :edit, :update, :show]
+    before_action :find_concert, only: [:new, :create, :edit, :update, :show]
 
     def new
     end 
 
     def create
+        @ticket = Ticket.new(user_params)
+        if @ticket.save
+            redirect_to ticket_path(@ticket)
+        else
+            redirect_to new_ticket_concert_path
+        end 
     end
 
     def edit
@@ -19,6 +25,7 @@ class TicketsController < ApplicationController
     end
 
     def destroy
+        
     end
 
     private
@@ -27,8 +34,8 @@ class TicketsController < ApplicationController
         params.require(:ticket).permit(:confirmation, :quantity)
     end
 
-    def set_concert
-        @concert = Concert.find_by_id(params[:id])
+    def find_concert
+        @concert = Concert.find_by_id(params[:concert_id])
     end 
 
     def find_ticket
