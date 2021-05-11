@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'faker'
 gem 'pry'
 
