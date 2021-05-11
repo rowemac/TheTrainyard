@@ -1,16 +1,6 @@
 class TicketsController < ApplicationController
     
     before_action :find_ticket, only: [:edit, :update, :show, :destroy]
-    # before_action :find_concert, only: [:new, :create, :edit, :update, :show]
-
-    def index
-        if params[:concert_id]
-            set_concert
-            @tickets = @concert.tickets
-        else 
-            @tickets = Ticket.all
-        end
-    end
 
     def show
         if params[:concert_id]
@@ -24,7 +14,8 @@ class TicketsController < ApplicationController
             set_concert
             @ticket = @concert.tickets.build
         else
-            @ticket = Ticket.new 
+            redirect_to concert_path(@concert)
+            # @ticket = Ticket.new 
         end
     end 
 
@@ -33,15 +24,18 @@ class TicketsController < ApplicationController
             set_concert
             @ticket = @concert.tickets.build(ticket_params)
         else
-            @ticket = Ticket.new(ticket_params)
+            redirect_to concert_path(@concert)
+            # @ticket = Ticket.new(ticket_params)
         end
+
+        @ticket.user_id = session[:user_id]
 
         if @ticket.save 
             if @concert
-                redirect_to concert_tickets_path(@concert, @ticket)
+                redirect_to concert_ticket_path(@concert, @ticket)
             else
-                redirect_to @ticket
-            end
+                redirect_to concert_ticket_path(@ticket)
+            end 
         else
             render :new
         end
