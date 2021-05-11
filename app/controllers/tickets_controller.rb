@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
     def create
         @ticket = Ticket.new(user_params)
         if @ticket.save
-            redirect_to ticket_path(@ticket)
+            redirect_to concert_tickets_path(@ticket)
         else
             redirect_to new_ticket_concert_path
         end 
