@@ -1,3 +1,7 @@
+User.destroy_all
+Concert.destroy_all
+Ticket.destroy_all 
+
 20.times do
     User.create!(
         name: Faker::Name.name, 
