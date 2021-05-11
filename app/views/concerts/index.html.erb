@@ -9,7 +9,7 @@
         <% if concert.sold_out == true %>
             <li><%= concert.sold_out = "SOLD OUT!" %></li>
         <% else %>
-            <li><%= link_to concert.sold_out = "BUY TICKETS!", new_concert_ticket_path(concert) %></li>
+            <li><%= concert.sold_out = "BUY TICKETS!"%></li>
         <% end %>
     </ul>
 <% end %>
