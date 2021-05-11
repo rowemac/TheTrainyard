@@ -1,8 +1,8 @@
-<h3>Buy your ticket(s) for <%= @concert.headliner %> on <%= @concert.date.strftime("%a %b %e, %Y") %> at <%= @concert.time.strftime("%I:%M %p") %>   </h3>
+<h3>Buy your ticket(s) for <%= @concert.headliner %> on <%= @concert.date.strftime("%a %b %e, %Y") %> at <%= @concert.time.strftime("%I:%M %p") %> </h3>
 
-<%= form_with model: @ticket do | f | %>
+<%= form_with model: [@concert, @ticket] do | f | %>
+    <%= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
     <%= f.label :quantity %>
-    <%= f.text_field :quantity %>
-    
+    <%= f.number_field :quantity, step: :any %>
     <%= f.submit "Purchase" %>
 <% end %>
