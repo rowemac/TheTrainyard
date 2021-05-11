@@ -15,7 +15,6 @@ class TicketsController < ApplicationController
             @ticket = @concert.tickets.build
         else
             redirect_to concert_path(@concert)
-            # @ticket = Ticket.new 
         end
     end 
 
@@ -25,7 +24,6 @@ class TicketsController < ApplicationController
             @ticket = @concert.tickets.build(ticket_params)
         else
             redirect_to concert_path(@concert)
-            # @ticket = Ticket.new(ticket_params)
         end
 
         @ticket.user_id = session[:user_id]
