@@ -1,4 +1,4 @@
-<h3>Buy your ticket(s) for <%= @concert.headliner %></h3>
+<h3>Buy your ticket(s) for <%= @concert.headliner %> on <%= @concert.date.strftime("%a %b %e, %Y") %> at <%= @concert.time.strftime("%I:%M %p") %>   </h3>
 
 <%= form_with model: @ticket do | f | %>
     <%= f.label :quantity %>
