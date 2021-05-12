@@ -13,4 +13,5 @@
 
 <br><br>
 <%= link_to "Edit My Profile", edit_user_path(@user) %> | 
-<%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %>
+<%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %> | 
+<%= link_to "Back", concerts_path(@concert) %>
