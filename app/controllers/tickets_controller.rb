@@ -43,7 +43,7 @@ class TicketsController < ApplicationController
 
     def update
         if params[:concert_id]
-            set_conert
+            set_concert
             @ticket = @concert.tickets.build(ticket_params)
         else
             redirect_to concert_path(@concert)
@@ -51,7 +51,7 @@ class TicketsController < ApplicationController
 
         @ticket.user_id = session[:user_id]
 
-        if @ticket.update(concert_path)
+        if @ticket.update(ticket_params)
             if @concert
                 redirect_to concert_ticket_path(@concert, @ticket)
             else
