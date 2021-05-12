@@ -7,7 +7,6 @@ class TicketsController < ApplicationController
             set_concert
         end 
     end
-
     
     def new
         if params[:concert_id]
@@ -16,7 +15,7 @@ class TicketsController < ApplicationController
         else
             redirect_to concert_path(@concert)
         end
-    end 
+    end
 
     def create
         if params[:concert_id]
@@ -43,9 +42,29 @@ class TicketsController < ApplicationController
     end
 
     def update
+        if params[:concert_id]
+            set_conert
+            @ticket = @concert.tickets.build(ticket_params)
+        else
+            redirect_to concert_path(@concert)
+        end
+
+        @ticket.user_id = session[:user_id]
+
+        if @ticket.update(concert_path)
+            if @concert
+                redirect_to concert_ticket_path(@concert, @ticket)
+            else
+                redirect_to concert_ticket_path(@ticket)
+            end
+        else 
+            render :edit
+        end 
     end 
 
     def destroy
+        @ticket.destroy
+        redirect_to concert_path(current_user)
     end
 
     private
