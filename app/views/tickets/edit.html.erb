@@ -1,1 +1,8 @@
-<h3>Do you want to alter your order?</h3>
+<h3>Update My Order</h3>
+
+<%= form_with model: [@concert, @ticket] do | f | %>
+    <%= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Update" %>
+<% end %>
