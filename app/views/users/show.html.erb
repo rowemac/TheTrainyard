@@ -3,7 +3,7 @@
 <h3>Email: <%= @user.email %></h3>
 <br><br>
 <h3>My Concerts</h3>
-<% @user.concerts.each do | concert | %>
+<% @user.concerts.ordered_by_date.each do | concert | %>
     <p><%= link_to concert.headliner, concert_path(concert) %></p>
     <p><%= concert.opener %></p>
     <p><%= concert.date.strftime("%a %b %e, %Y") %></p>
