@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     def show
         if !logged_in?
             redirect_to '/wrong_page'
-        end
+        end 
     end 
 
     def destroy
