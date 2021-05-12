@@ -27,8 +27,8 @@ end
     Ticket.create!(
         confirmation: Faker::Number.number(digits: 15),
         quantity: rand(1..5),
-        user_id: rand(1..20),
-        concert_id: rand(1..50)
+        user: User.all.sample,
+        concert: Concert.all.sample
     )
 end
 
