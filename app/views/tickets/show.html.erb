@@ -8,5 +8,5 @@
 
 
 
-<p><%= link_to "Edit My Ticket(s)",  edit_concert_ticket_path(@ticket) %>
+<p><%= link_to "Change Ticket Quantity",  edit_concert_ticket_path(@ticket) %>
 <p><%= link_to("Cancel My Order", @ticket.concert, method: :delete, data:{confirm: "Are you sure you want to cancel your order?"}) %></p>
