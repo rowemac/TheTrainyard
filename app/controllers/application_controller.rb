@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
         !current_user.nil?
     end
 
+    def home
+        render '/home'
+    end
+
     def wrong_page
         render '/wrong_page'
     end

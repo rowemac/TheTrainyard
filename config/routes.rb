@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   resources :concerts, only: [:index, :show] do
     resources :tickets, only: [:show, :new, :create, :edit, :update, :destroy]
   end 
-
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'welcome', to: 'sessions#welcome'
+  
+  get '/', to: "application#home"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get '/', to: 'welcome#home'
   get '/:anything', to: 'application#wrong_page'
 
 end
