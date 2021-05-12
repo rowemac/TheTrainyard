@@ -1,5 +1,5 @@
+<h2>THE TRAINYARD PRESENTS</h2>
 <% @concerts.each do | concert | %>
-    <h2>THE TRAINYARD PRESENTS</h2>
     <h2><%= link_to concert.headliner, concert_path(concert) %></h2>
     <h4><%= concert.opener %></h4>
     <ul>
@@ -7,9 +7,9 @@
         <li><%= concert.time.strftime("%I:%M %p") %></li>
         <li>$<%= concert.price %></li>
         <% if concert.sold_out == true %>
-            <li><%= concert.sold_out = "SOLD OUT!" %></li>
+            <li><%= concert.sold_out = "SOLD OUT" %></li>
         <% else %>
-            <li><%= concert.sold_out = "BUY TICKETS!"%></li>
+            <li><%= concert.sold_out = "Tickets available"%></li>
         <% end %>
     </ul>
 <% end %>
