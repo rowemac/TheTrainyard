@@ -1,18 +1,19 @@
-<h1>THE TRAINYARD PRESENTS</h1>
-<h2><%= @concert.headliner%></h2>
-<h3>with</h3>
-<h4><%= @concert.opener %></h4>
-<ul>
-    <li><%= @concert.date.strftime("%a %b %e, %Y") %></li>
-    <li><%= @concert.time.strftime("%I:%M %p") %></li>
-    <li>$<%= @concert.price %></li>
-</ul>
+<br>
+<div class="container">
+    <h1>THE TRAINYARD PRESENTS</h1>
+    <h2><%= @concert.headliner%></h2>
+    <h3>with</h3>
+    <h4><%= @concert.opener %></h4>
+    <ul>
+        <li><%= @concert.date.strftime("%a %b %e, %Y") %></li>
+        <li><%= @concert.time.strftime("%I:%M %p") %></li>
+        <li>$<%= @concert.price %></li>
+    </ul>
 
-<% if @concert.sold_out == false %>
-    <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %>
-<% else %>
-    <p>We're sorry. This concert is currently <b>SOLD OUT</b>.</p>
-<% end %>
-<br>
-<br>
-<%= link_to "Back", concerts_path(@concert) %>
+    <% if @concert.sold_out == false %>
+        <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %>
+    <% else %>
+        <p>We're sorry. This concert is currently <b>SOLD OUT</b>.</p>
+    <% end %> | 
+    <%= link_to "Back", concerts_path(@concert) %>
+</div>
