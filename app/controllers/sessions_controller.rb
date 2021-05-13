@@ -11,13 +11,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to concerts_path
     else
-      # flash[:notice] = "Username and/or Password are invalid. Please try again."
+      flash[:notice] = "Username and/or Password are invalid. Please try again."
       redirect_to '/login'
     end 
   end
 
   def destroy
     session.clear
+    flash[:notice] = "You have successfully logged out."
     redirect_to '/login'
   end
 end
