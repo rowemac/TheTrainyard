@@ -3,8 +3,12 @@ class TicketsController < ApplicationController
     before_action :find_ticket, only: [:edit, :update, :show, :destroy]
 
     def show
-        if params[:concert_id]
-            set_concert
+        if logged_in?
+            if params[:concert_id]
+                set_concert
+            end 
+        else
+            redirect_to '/login'
         end 
     end
     
