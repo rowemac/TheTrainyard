@@ -1,10 +1,13 @@
-<h3>Buy your ticket(s) for <%= @concert.headliner %> on <%= @concert.date.strftime("%a %b %e, %Y") %> at <%= @concert.time.strftime("%I:%M %p") %> </h3>
+<br>
+<div class="container">
+    <h5>Buy your ticket(s) for <%= @concert.headliner %> on <%= @concert.date.strftime("%a %b %e, %Y") %> at <%= @concert.time.strftime("%I:%M %p") %> </h5>
+    <br>
+    <%= form_with model: [@concert, @ticket] do | f | %>
+        <%= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Purchase" %>
+    <% end %>
 
-<%#= form_with model: [@concert, @ticket] do | f | %>
-    <%#= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
-    <%#= f.label :quantity %>
-    <%#= f.number_field :quantity %>
-    <%#= f.submit "Purchase" %>
-<%# end %>
-
-<%= render partial: 'form', locals: { url: concert_ticket_path(current_user, @ticket) } %>
+    <%#= render partial: 'form', locals: { url: concert_ticket_path(current_user, @ticket) } %>
+</div>
