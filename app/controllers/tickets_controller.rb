@@ -9,27 +9,32 @@ class TicketsController < ApplicationController
     end
     
     def new
-        if params[:concert_id]
-            set_concert
-            if @concert.sold_out == false
-                @ticket = @concert.tickets.build
+        if logged_in?
+            if params[:concert_id]
+                set_concert
+                if !@concert.sold_out
+                    @ticket = @concert.tickets.build
+                else
+                    redirect_to '/wrong_page'
+                end
             else
-                redirect_to '/wrong_page'
+                redirect_to concert_path(@concert)
             end
-        else
-            redirect_to concert_path(@concert)
-        end
+        else 
+            redirect_to '/login'
+        end 
     end
 
     def create
         if params[:concert_id]
             set_concert
             @ticket = @concert.tickets.build(ticket_params)
+            @ticket.user_id = current_user.id
         else
             redirect_to concert_path(@concert)
         end
 
-        @ticket.user_id = session[:user_id]
+        # @ticket.user_id = session[:user_id]
 
         if @ticket.save 
             if @concert
@@ -39,34 +44,34 @@ class TicketsController < ApplicationController
                 redirect_to concert_ticket_path(@ticket)
             end 
         else
-            flash[:notice] = "Invalid quantity for a ticket."
             render :new
         end
     end
 
     def edit
         if !logged_in?
-            redirect_to '/wrong_page'
+            redirect_to '/login'
         end
+        set_concert
     end
 
     def update
-        if params[:concert_id]
-            set_concert
-            @ticket = @concert.tickets.build(ticket_params)
-        else
-            redirect_to concert_path(@concert)
-        end
+        # if params[:concert_id]
+        set_concert
+        # else
+        #     redirect_to concert_path(@concert)
+        # end
 
-        @ticket.user_id = session[:user_id]
+        # @ticket.user_id = session[:user_id]
 
         if @ticket.update(ticket_params)
-            if @concert
-                flash[:notice] = "Order successfully updated."
-                redirect_to concert_ticket_path(@concert, @ticket)
-            else
-                redirect_to concert_ticket_path(@ticket)
-            end
+            # byebug
+            # if @concert
+            flash[:notice] = "Order successfully updated."
+            redirect_to concert_ticket_path(@concert, @ticket)
+            # else
+            #     redirect_to concert_ticket_path(@concert, @ticket)
+            # end
         else 
             render :edit
         end 
