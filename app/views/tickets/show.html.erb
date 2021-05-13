@@ -1,12 +1,18 @@
-<h1>Your Ticket(s)</h1>
+<br>
+<div class="container">
+    <h5>Your Ticket(s)</h5>
 
-<h2><%= @ticket.concert.headliner %></h2>
-<h3>with <%= @ticket.concert.opener %></h3>
-<h3>Confirmation Number: <%= @ticket.confirmation %></h3>
-<p><%= @ticket.concert.date.strftime("%a %b %e, %Y") %></p>
-<p><%= @ticket.concert.time.strftime("%I:%M %p") %></p>
+    <h6><%= @ticket.concert.headliner %> with <%= @ticket.concert.opener %></h6>
+    <h6>Confirmation Number: <%= @ticket.confirmation %></h6>
+    <p><%= @ticket.concert.date.strftime("%a %b %e, %Y") %>
+    <%= @ticket.concert.time.strftime("%I:%M %p") %><br>
+    <%= @ticket.quantity %> ticket(s)<br>
+    Total Cost: $<%= @ticket.quantity * @ticket.concert.price %></p>
+
+    
 
 
 
-<p><%= link_to "Change Ticket Quantity",  edit_concert_ticket_path(@ticket) %>
-<p><%= link_to("Cancel My Order", concert_ticket_path(@ticket.concert, @ticket), method: :delete, data:{confirm: "Are you sure you want to cancel your order?"}) %></p>
+    <p><%= link_to "Change Ticket Quantity",  edit_concert_ticket_path(@ticket) %>
+    <p><%= link_to("Cancel My Order", concert_ticket_path(@ticket.concert, @ticket), method: :delete, data:{confirm: "Are you sure you want to cancel your order?"}) %></p>
+</div>
