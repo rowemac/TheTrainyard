@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
     def update
         @user.update(user_params)
+        flash[:notice] = "Profile successfully updated."
         redirect_to user_path(@user)
     end
 
@@ -40,7 +41,8 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        redirect_to concerts_path
+        flash[:notice] = "Profile successfully deleted."
+        redirect_to '/'
     end
 
 
