@@ -60,22 +60,10 @@ class TicketsController < ApplicationController
     end
 
     def update
-        # if params[:concert_id]
         set_concert
-        # else
-        #     redirect_to concert_path(@concert)
-        # end
-
-        # @ticket.user_id = session[:user_id]
-
         if @ticket.update(ticket_params)
-            # byebug
-            # if @concert
             flash[:notice] = "Order successfully updated."
             redirect_to concert_ticket_path(@concert, @ticket)
-            # else
-            #     redirect_to concert_ticket_path(@concert, @ticket)
-            # end
         else 
             render :edit
         end 
