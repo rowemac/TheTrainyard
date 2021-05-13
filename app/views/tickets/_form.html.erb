@@ -1,8 +1,8 @@
 <% if @ticket.errors.any? %>
-        <h6 class="error"><%= @ticket.errors.full_messages.to_sentence %></h6>
+    <p class="error"><%= @ticket.errors.full_messages.to_sentence %></p>
 <% end %>
 
-<%= form_for @ticket, url: url do | f | %>
+<%= form_for @ticket, url: c_t do | f | %>
     <%= f.hidden_field :confirmation, value: Faker::Number.number(digits: 15) %>
     <%= f.label :quantity %>
     <%= f.number_field :quantity %>
