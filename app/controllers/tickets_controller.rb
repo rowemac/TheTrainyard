@@ -11,7 +11,11 @@ class TicketsController < ApplicationController
     def new
         if params[:concert_id]
             set_concert
-            @ticket = @concert.tickets.build
+            if @concert.sold_out == false
+                @ticket = @concert.tickets.build
+            else
+                redirect_to '/wrong_page'
+            end
         else
             redirect_to concert_path(@concert)
         end
