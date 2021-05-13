@@ -64,7 +64,7 @@ class TicketsController < ApplicationController
 
     def destroy
         @ticket.destroy
-        redirect_to concert_path(current_user)
+        redirect_to user_path(current_user)
     end
 
     private
