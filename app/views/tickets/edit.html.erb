@@ -2,5 +2,5 @@
 <div class="container">
     <h5>Update My Order</h5>
     <br>
-    <%= render partial: 'form', locals: { url: concert_ticket_path(current_user, @ticket) } %>
+    <%= render partial: 'form', locals: { c_t: concert_ticket_path(@concert, @ticket) } %>
 </div>
