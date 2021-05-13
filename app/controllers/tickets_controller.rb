@@ -38,6 +38,7 @@ class TicketsController < ApplicationController
                 redirect_to concert_ticket_path(@ticket)
             end 
         else
+            flash[:notice] = "Invalid quantity for a ticket."
             render :new
         end
     end
@@ -57,6 +58,7 @@ class TicketsController < ApplicationController
 
         if @ticket.update(ticket_params)
             if @concert
+                flash[:notice] = "Order successfully updated."
                 redirect_to concert_ticket_path(@concert, @ticket)
             else
                 redirect_to concert_ticket_path(@ticket)
@@ -68,6 +70,7 @@ class TicketsController < ApplicationController
 
     def destroy
         @ticket.destroy
+        flash[:notice] = "Ticket refund successful."
         redirect_to user_path(current_user)
     end
 
