@@ -1,6 +1,7 @@
 <% if @user.errors.any? %>
-        <h6 class="error"><%= @user.errors.full_messages.to_sentence %></h6>
+    <p class="error"><%= @user.errors.full_messages.to_sentence %></p>
 <% end %>
+
 
 <%= form_with model: @user, local: true do | f | %>
     <%= f.label :name %>
