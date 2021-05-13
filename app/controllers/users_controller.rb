@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     end 
 
     def edit
+        if @user
+            edit_user_path(@user)
+        else
+            redirect_to '/wrong_page'
+        end
     end
 
     def update
@@ -26,8 +31,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        if !logged_in?
-            redirect_to '/wrong_page'
+        if @user
+            user_path(@user)
+        else
+            redirect_to '/wrong_page' 
         end 
     end 
 
