@@ -3,12 +3,12 @@
 <h3>Email: <%= @user.email %></h3>
 <br><br>
 <h3>My Concerts</h3>
-<% @user.concerts.ordered_by_date.each do | concert | %>
-    <p><%= link_to concert.headliner, concert_path(concert) %></p>
-    <p><%= concert.opener %></p>
-    <p><%= concert.date.strftime("%a %b %e, %Y") %></p>
-    <p><%= concert.time.strftime("%I:%M %p") %></p>
-    <p>Tickets: <%= concert.tickets.count %></p>
+<% @user.tickets.each do | ticket | %>
+    <p><%= link_to ticket.concert.headliner, concert_ticket_path(ticket.concert, ticket) %></p>
+    <p><%= ticket.concert.opener %></p>
+    <p><%= ticket.concert.date.strftime("%a %b %e, %Y") %></p>
+    <p><%= ticket.concert.time.strftime("%I:%M %p") %></p>
+    <p>Tickets: <%= ticket.quantity %></p>
 <% end %>
 
 <br><br>
