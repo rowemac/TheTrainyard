@@ -33,6 +33,7 @@ class TicketsController < ApplicationController
 
         if @ticket.save 
             if @concert
+                flash[:notice] = "Thank you for your purchase! Enjoy the show."
                 redirect_to concert_ticket_path(@concert, @ticket)
             else
                 redirect_to concert_ticket_path(@ticket)
