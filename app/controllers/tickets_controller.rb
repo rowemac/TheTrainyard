@@ -38,8 +38,6 @@ class TicketsController < ApplicationController
             redirect_to concert_path(@concert)
         end
 
-        # @ticket.user_id = session[:user_id]
-
         if @ticket.save 
             if @concert
                 flash[:notice] = "Thank you for your purchase! Enjoy the show."
