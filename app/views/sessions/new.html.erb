@@ -1,11 +1,15 @@
-<h1>Log In</h1>
+
 <br><br>
-<%= form_with url: '/login', local: true do | f | %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+<div class="container">
+    <h1>Log In</h1>
     <br><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br><br>
-    <%= f.submit "Log In" %>
-<% end %>
+    <%= form_with url: '/login', local: true do | f | %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <br><br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br><br>
+        <%= f.submit "Log In" %>
+    <% end %>
+</div>
