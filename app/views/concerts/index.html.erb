@@ -1,15 +1,21 @@
-<h2>THE TRAINYARD PRESENTS</h2>
-<% @concerts.ordered_by_date.each do | concert | %>
-    <h2><%= link_to concert.headliner, concert_path(concert) %></h2>
-    <h4><%= concert.opener %></h4>
-    <ul>
-        <li><%= concert.date.strftime("%a %b %e, %Y") %></li>
-        <li><%= concert.time.strftime("%I:%M %p") %></li>
-        <li>$<%= concert.price %></li>
-        <% if concert.sold_out == true %>
-            <li><%= concert.sold_out = "SOLD OUT" %></li>
-        <% else %>
-            <li><%= concert.sold_out = "Tickets available"%></li>
-        <% end %>
+<br>
+<div class="container">
+    <h2>THE TRAINYARD PRESENTS</h2>
+    <br>
+    <ul class="list-group">
+        <% @concerts.ordered_by_date.each do | concert | %>
+            <li class="list-group-item">
+            <h5><%= link_to concert.headliner, concert_path(concert) %></h5>
+            <h6><%= concert.opener %></h6>
+                <%= concert.date.strftime("%a %b %e, %Y") %><br>
+                <%= concert.time.strftime("%I:%M %p") %><br>
+                $<%= concert.price %><br>
+                <% if concert.sold_out == true %>
+                    <%= concert.sold_out = "SOLD OUT" %><br>
+                <% else %>
+                    <%= concert.sold_out = "Tickets available"%><br>
+                <% end %>
+            </li>
     </ul>
-<% end %>
+    <% end %>
+</div>
