@@ -1,17 +1,22 @@
-<h3>Name: <%= @user.name %><h3>
-<h3>Username: <%= @user.username %></h3>
-<h3>Email: <%= @user.email %></h3>
-<br><br>
-<h3>My Concerts</h3>
-<% @user.tickets.each do | ticket | %>
-    <p><%= link_to ticket.concert.headliner, concert_ticket_path(ticket.concert, ticket) %></p>
-    <p><%= ticket.concert.opener %></p>
-    <p><%= ticket.concert.date.strftime("%a %b %e, %Y") %></p>
-    <p><%= ticket.concert.time.strftime("%I:%M %p") %></p>
-    <p>Tickets: <%= ticket.quantity %></p>
-<% end %>
-
-<br><br>
-<%= link_to "Edit My Profile", edit_user_path(@user) %> | 
-<%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %> | 
-<%= link_to "Back", concerts_path(@concert) %>
+<br>
+<div class="container">
+    <h5>Name: <%= @user.name %><h5>
+    <h5>Username: <%= @user.username %></h5>
+    <h5>Email: <%= @user.email %></h5>
+    <%= link_to "Edit My Profile", edit_user_path(@user) %> | 
+    <%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %>
+    <br><br>
+    <h5>My Concerts</h5>
+    <ul class="list-group">
+        <% @user.tickets.each do | ticket | %>
+            <li class="list-group-item">
+            <p><%= link_to ticket.concert.headliner, concert_ticket_path(ticket.concert, ticket) %><br>
+            <%= ticket.concert.opener %><br>
+            <%= ticket.concert.date.strftime("%a %b %e, %Y") %><br>
+            <%= ticket.concert.time.strftime("%I:%M %p") %><br>
+            Tickets: <%= ticket.quantity %></p>
+        <% end %>
+    </ul>
+    <br>
+    <%= link_to "Back", concerts_path(@concert) %>
+</div>
