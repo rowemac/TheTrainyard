@@ -45,6 +45,9 @@ class TicketsController < ApplicationController
     end
 
     def edit
+        if !logged_in?
+            redirect_to '/wrong_page'
+        end
     end
 
     def update
