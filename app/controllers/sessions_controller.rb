@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
 
   def google
-    @user = User.find_or_create_by(email: auth["info"]["email"]) do |user| 
+    @user = User.find_or_create_by(email: auth["info"]["email"]) do | user | 
         user.password =  SecureRandom.hex(10)
         user.name = auth["info"]["name"]
         user.username = auth["info"]["name"]
@@ -32,13 +32,20 @@ class SessionsController < ApplicationController
     end 
   end
 
-  def auth
-    request.env['omniauth.auth']
-  end
-
   def destroy
     session.clear
     flash[:notice] = "You have successfully logged out."
     redirect_to '/login'
   end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end 
+
 end
