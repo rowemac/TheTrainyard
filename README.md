@@ -1,24 +1,25 @@
-# README
+# THE TRAINYARD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+In this simulated music venue web application, a user can create an account in order to purchase tickets for concerts. Their profile page displays these tickets and allows for them to edit the quantity and to receive a "refund," or delete them. If a user has a Gmail account, it is also possible to log into the application through Google (which is made possible through the implementation of Omniauth).
 
-* Ruby version
+## Install Instructions
 
-* System dependencies
+- Fork the repo and copy the SSH link.
 
-* Configuration
+- `cd` into your desired folder and paste the SSH link into your terminal and hit `enter`.
 
-* Database creation
+- Before running the program type `bundle install` in your terminal, then hit `enter` to run the installation.
 
-* Database initialization
+- Once the Ruby gems are installed, type `rails s` in your terminal to set up a local server.
 
-* How to run the test suite
+- Copy the address provided by `rails s` and paste it into your browser's address bar.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
+- This program is licensed under The MIT License (https://opensource.org/licenses/MIT). License file included in top directory.
 
-* ...
+## Sources
+
+- https://rubygems.org/ 
