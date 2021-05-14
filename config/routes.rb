@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
+  match '/auth/:provider/callback', to: 'sessions#google', via: [:get, :post]
   get '/:anything', to: 'application#wrong_page'
-  get '/concerts/:anything/tickets', to: 'application#wrong_page'
+  get '/concerts/:anything/tickets', to: 'application#wrong_page' 
 end
