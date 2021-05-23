@@ -11,9 +11,10 @@
     </ul>
 
     <% if @concert.sold_out == false %>
-        <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %>
+        <button type="button" class="btn btn-outline-dark"> <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %> </button>
     <% else %>
         <p>We're sorry. This concert is currently <b>SOLD OUT</b>.</p>
-    <% end %> | 
-    <%= link_to "Back", concerts_path(@concert) %>
+    <% end %>
+    <br><br>
+    <button type="button" class="btn btn-outline-dark"><%= link_to "Back", concerts_path(@concert) %></button>
 </div>
