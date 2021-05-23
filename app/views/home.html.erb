@@ -5,10 +5,10 @@
     <h4>"But there ain't nothin' sweeter than a-ridin' the rails"</h4>
     <h5>- Tom Waits</h5>
     <br><br>
-    <p><%= link_to "Log In", login_path %> | 
-    <%= link_to "Sign Up", new_user_path %></p>
-    OR
-    <%= link_to('Login with Google!', '/auth/google_oauth2', method: :post) %> 
+    <button type="button" class="btn btn-outline-dark"><%= link_to "Log In", login_path %></button>       
+    <button type="button" class="btn btn-outline-dark"><%= link_to "Sign Up", new_user_path %></button>
+    <br><br>
+    <button type="button" class="btn btn-outline-dark"><%= link_to('Login with Google', '/auth/google_oauth2', method: :post) %></button>
 
 </div>
 

@@ -9,6 +9,7 @@
         <li><%= @concert.time.strftime("%I:%M %p") %></li>
         <li>$<%= @concert.price %></li>
     </ul>
+    <br><br>
 
     <% if @concert.sold_out == false %>
         <button type="button" class="btn btn-outline-dark"> <%= link_to "Buy Tickets", new_concert_ticket_path(@concert)  %> </button>
