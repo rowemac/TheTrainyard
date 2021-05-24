@@ -8,4 +8,8 @@ class ConcertsController < ApplicationController
         @concert = Concert.find_by_id(params[:id])
     end
 
+    def early
+        @concerts = Concert.early_concerts
+    end
+
 end 

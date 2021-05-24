@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
 
+  get '/concerts/early', to: 'concerts#early'
+  
   resources :concerts, only: [:index, :show] do
     resources :tickets, only: [:show, :new, :create, :edit, :update, :destroy]
   end 

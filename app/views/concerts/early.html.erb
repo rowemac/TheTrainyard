@@ -1,10 +1,9 @@
 <br>
 <div class="container">
-    <h2>THE TRAINYARD PRESENTS</h2>
+    <h2>THE TRAINYARD PRESENTS: EARLY CONCERTS</h2>
     
-    <p> Still getting back into the groove of live music? Check out our <%= link_to "early shows", href="concerts/early" %> for more info.</p>
     <ul class="list-group">
-        <% @concerts.ordered_by_date.each do | concert | %>
+        <% @concerts.each do | concert | %>
             <li class="list-group-item">
             <h5><%= link_to concert.headliner, concert_path(concert) %></h5>
             <h6><%= concert.opener %></h6>

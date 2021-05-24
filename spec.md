@@ -27,6 +27,8 @@ Specs:
 - [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
     - In the Concert model, using a scope method concerts are ordered by ascending date to be more user-friendly in the concert index
         - This method is chained to the .each iteration in that index
+    - In the Concert index a link is placed to show all of the early concerts in a new route
+        - The scope method is chained with two AcitveRecord methods: where (7pm) and order (ascending) 
 
 - [X] Include signup (how e.g. Devise)
     - A signup for User is located on the home page of the app
