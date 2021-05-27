@@ -12,4 +12,13 @@ class ConcertsController < ApplicationController
         @concerts = Concert.early_concerts
     end
 
+    def search
+        if params[:search].blank?  
+            redirect_to(concerts_path, alert: "You didn't search anything!") and return  
+        else  
+            parameter = params[:search].downcase.strip  
+            @results = Concert.search_headliner(parameter) 
+        end
+    end 
+
 end 
