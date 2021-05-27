@@ -4,9 +4,9 @@
     <h5>Username: <%= @user.username %></h5>
     <h5>Email: <%= @user.email %></h5>
     <br>
-    <button type="button" class="btn btn-outline-dark"> <%= link_to "Edit My Profile", edit_user_path(@user) %></button>
+    <%= link_to "Edit My Profile", edit_user_path(@user), class: "btn btn-outline-dark" %>
     <br><br> 
-    <button type="button" class="btn btn-outline-dark"><%= link_to("Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}) %></button>
+    <%= link_to "Delete My Profile", @user, method: :delete, data:{confirm: "Are you sure you want to delete your profile?"}, class: "btn btn-outline-dark" %>
     <br><br>
     <h5>My Concerts</h5>
     <ul class="list-group">
@@ -20,5 +20,5 @@
         <% end %>
     </ul>
     <br>
-    <button type="button" class="btn btn-outline-dark"><%= link_to "Back", concerts_path(@concert) %></button>
+    <%= link_to "Back", concerts_path(@concert), class: "btn btn-outline-dark" %>
 </div>
