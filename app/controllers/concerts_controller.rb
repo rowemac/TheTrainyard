@@ -16,8 +16,8 @@ class ConcertsController < ApplicationController
         if params[:search].blank?  
             redirect_to(concerts_path, alert: "You didn't search anything!") and return  
         else  
-            parameter = params[:search].downcase.strip  
-            @results = Concert.search_headliner(parameter) 
+            parameter = params[:search].downcase.gsub(/\s+/, "")
+            @results = Concert.ordered_by_date.select { | concert | concert.headliner.downcase.include?(parameter) }
         end
     end 
 

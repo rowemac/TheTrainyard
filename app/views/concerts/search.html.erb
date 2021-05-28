@@ -6,7 +6,7 @@
     <ul class="list-group">
 
         <% if @results.empty? %>
-            <% flash[:notice] = "Sorry, no results found!" %>
+            <h5>Sorry, no results found!</h5>
         <% else %>
     
             <% @results.each do | concert | %>
