@@ -5,7 +5,11 @@ class ConcertsController < ApplicationController
     end 
 
     def show
-        @concert = Concert.find_by_id(params[:id])
+        if @concert = Concert.find_by_id(params[:id])
+            redirect_to concert_path(@concert)
+        else
+            redirect_to '/wrong_page'
+        end
     end
 
     def early
