@@ -1,12 +1,9 @@
 <br><br>
 <div class="home-container">
-
-    <h3 class="main-title">THE TRAINYARD</h3><br>
-    <h4>"But there ain't nothin' sweeter than a-ridin' the rails"</h4>
-    <h5>- Tom Waits</h5>
+    <%= image_tag 'logo.svg' %>
     <br><br>
-    <%= link_to "Log In", login_path, class: "btn btn-outline-dark" %>      
-    <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-dark" %>
+    <%= class="login-btn" link_to "Log In", login_path, class: "btn btn-outline-dark" %>      
+    <%= class="signup-btn" link_to "Sign Up", new_user_path, class: "btn btn-outline-dark" %>
     <br><br>
     <button type="button" class="btn btn-outline-dark"><%= link_to('Login with Google', '/auth/google_oauth2', method: :post) %></button>
 
