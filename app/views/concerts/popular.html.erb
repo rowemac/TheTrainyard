@@ -1,0 +1,41 @@
+<!--br>
+    <div class= "row">
+        <div class="col"> </div>
+        <div class="col"> </div>
+        <div class="col"> </div>
+        <div class="col"> </div>
+        <div class="col">
+            <%= form_tag(search_path, method: "get", class: 'd-flex') do %>  
+                    <div class="input-group">  
+                    <%= search_field_tag :search, params[:search], placeholder: "Search Bands", class: "form-control" %>  
+                        <div>  
+                        <%= submit_tag "Search", class: "btn btn-primary" %>  
+                        </div>  
+                    </div>  
+            <% end %>
+        </div>
+        <div class="col"></div>
+    </div>
+<br>
+<div class="container">
+    <h2>THE TRAINYARD PRESENTS</h2>
+    
+    <p> Still getting back into the groove of live music? Check out our <%= link_to "early shows", href="concerts/early" %> for more info.</p>
+    <ul class="list-group">
+        <% @concerts.ordered_by_date.each do | concert | %>
+            <li class="list-group-item">
+            <h5><%= link_to concert.headliner, concert_path(concert) %></h5>
+            <h6><%= concert.opener %></h6>
+                <%= concert.date.strftime("%a %b %e, %Y") %><br>
+                <%= concert.time.strftime("%I:%M %p") %><br>
+                $<%= concert.price %><br>
+                <% if concert.sold_out == true %>
+                    <%= concert.sold_out = "SOLD OUT" %><br>
+                <% else %>
+                    <%= concert.sold_out = "Tickets available"%><br>
+                <% end %>
+                <%= concert.tickets.count %> ticket(s)
+            </li>
+    </ul>
+    <% end %>
+</div>
