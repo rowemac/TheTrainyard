@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/concerts/early', to: 'concerts#early'
   get '/search', to: 'concerts#search'
+  # get '/concerts/popular', 'concerts#popular'
   
   resources :concerts, only: [:index, :show] do
     resources :tickets, only: [:show, :new, :create, :edit, :update, :destroy]
@@ -17,3 +18,7 @@ Rails.application.routes.draw do
   get '/concerts/:anything/tickets', to: 'application#wrong_page' 
 end
 
+
+# custom route /concerts/popular
+# render index page
+# create scope method that will find top 5 concerts by how many tickets
