@@ -5,9 +5,7 @@ class ConcertsController < ApplicationController
     end 
 
     def show
-        if @concert = Concert.find_by_id(params[:id])
-            redirect_to concert_path(@concert)
-        else
+        if !@concert = Concert.find_by_id(params[:id])
             redirect_to '/wrong_page'
         end
     end
@@ -24,5 +22,9 @@ class ConcertsController < ApplicationController
             @results = Concert.ordered_by_date.select { | concert | concert.headliner.downcase.include?(parameter) }
         end
     end 
+
+    # def popular
+    #     @concerts = Concert.popular
+    # end
 
 end 
