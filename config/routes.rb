@@ -16,3 +16,4 @@ Rails.application.routes.draw do
   get '/:anything', to: 'application#wrong_page'
   get '/concerts/:anything/tickets', to: 'application#wrong_page' 
 end
+
