@@ -19,7 +19,6 @@ body {
     background-color: rgb(240, 236, 236);
 }
 
-
 .error{
     color: red;
 }
@@ -29,6 +28,6 @@ body {
 }
 
 .btn {
-    margin-left: 2.5px;
-    margin-right: 2.5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
